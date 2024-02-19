@@ -1,0 +1,276 @@
+﻿<UserControl x:Class="MoneyOrganizer.View.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MoneyOrganizer.View"
+             xmlns:viewmodels="clr-namespace:MoneyOrganizer.ViewModel.SettingViewModel"
+             xmlns:views="clr-namespace:MoneyOrganizer.View.SettingView"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="935">
+    
+    <UserControl.Resources>
+
+        <!--// Fonts //-->
+
+        <Style x:Key="font_style" TargetType="TextBlock">
+
+            <Setter Property="FontFamily"
+                    Value="../Assets/Roboto-Light.ttf #Roboto"/>
+
+            <Setter Property="VerticalAlignment"
+                    Value="Center"/>
+
+            <Setter Property="HorizontalAlignment"
+                    Value="Left"/>
+
+            <Setter Property="Foreground"
+                    Value="White"/>
+
+            <Setter Property="FontSize"
+                    Value="20"/>
+
+        </Style>
+
+        <!--// Menu Items Button Style Template //-->
+
+        <Style x:Key="Btn_menu" TargetType="{x:Type Button}">
+
+            <Setter Property="Background" Value="Transparent"/>
+
+            <Setter Property="Template">
+
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="{x:Type Button}">
+
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="Transparent"
+                                BorderThickness="0">
+
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+
+                        </Border>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+
+            <Style.Triggers>
+
+                <Trigger Property="IsMouseOver" Value="True">
+
+                    <Setter Property="Background" Value="Transparent"/>
+
+                </Trigger>
+
+            </Style.Triggers>
+
+        </Style>
+
+    </UserControl.Resources>
+    
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            
+            <ColumnDefinition Width="2*"/>
+            
+            <ColumnDefinition Width="5*"/>
+            
+        </Grid.ColumnDefinitions>
+        
+        <!--// Navigation Menu //--> 
+
+        <Grid Grid.Column="0">
+
+            <StackPanel>
+
+                <TextBlock Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="40,25,0,0"
+                    Text="Ustawienia"
+                    Background="Transparent"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource font_style}"/>
+
+                <ListView x:Name="Settings_LV"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Margin="0 30 0 0"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+                    <ListViewItem Width="262" 
+                                  Height="40"
+                                  HorizontalAlignment="Left"
+                                  Padding="0">
+
+                        <Button Style="{StaticResource Btn_menu}"
+                                Command="{Binding NavigateAccountCommand}"
+                                Width="262"
+                                Height="40">
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="262"
+                                        Height="40">
+
+                                <Image Source="../Assets/img_contact.png"
+                                       Stretch="None"
+                                       Margin="5,0,0,0"
+                                       Width="30"
+                                       Height="30"/>
+
+                                <TextBlock Text="Profil użytkownika"
+                                           Margin="25,0,0,0"
+                                           FontSize="12"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                    </ListViewItem>
+
+                    <ListViewItem Margin="0 20 0 0"
+                                  Padding="0"
+                                  Height="40"
+                                  Width="262"
+                                  HorizontalAlignment="Left">
+
+                        <Button Style="{StaticResource Btn_menu}"
+                                Command="{Binding NavigateInterfaceCommand}"
+                                Height="40"
+                                Width="262">
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="262"
+                                        Height="40">
+
+                                <Image Source="../Assets/img_map.png"
+                                       Stretch="None"
+                                       Margin="5,0,0,0"
+                                       Width="30"
+                                       Height="30"/>
+
+                                <TextBlock Text="Interfejs programu"
+                                           Margin="25,0,0,0"
+                                           FontSize="12"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                    </ListViewItem>
+
+                    <!--// ListView Items Style Template //-->
+
+                    <ListView.ItemContainerStyle>
+
+                        <Style TargetType="ListViewItem">
+
+                            <Setter Property="Template">
+
+                                <Setter.Value>
+
+                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+
+                                        <Border x:Name="Bd"
+                                                    Height="40"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    Background="{TemplateBinding Background}"
+                                                    Padding="{TemplateBinding Padding}"
+                                                    SnapsToDevicePixels="True">
+
+                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+
+                                        </Border>
+
+                                        <ControlTemplate.Triggers>
+
+                                            <MultiTrigger>
+
+                                                <MultiTrigger.Conditions>
+
+                                                    <Condition Property="IsMouseOver" Value="True"/>
+
+                                                </MultiTrigger.Conditions>
+
+                                                <Setter Property="Background"
+                                                            TargetName="Bd"
+                                                            Value="#404D5B"/>
+
+                                                <Setter Property="BorderBrush"
+                                                            TargetName="Bd"
+                                                            Value="#404D5B"/>
+
+                                            </MultiTrigger>
+
+                                        </ControlTemplate.Triggers>
+
+                                    </ControlTemplate>
+
+                                </Setter.Value>
+
+                            </Setter>
+
+                        </Style>
+
+                    </ListView.ItemContainerStyle>
+
+                </ListView>
+
+            </StackPanel>
+
+        </Grid>
+        
+        <!--// Border //-->
+
+        <Grid Grid.Column="0">
+
+            <Border BorderBrush="#343746"
+                    BorderThickness="0 0 1 0"/>
+
+        </Grid>
+        
+        <!--// Content Grid //--> 
+
+        <Grid Grid.Column="1" x:Name="Settings_BG">
+
+            <!--// Content Control //-->
+
+            <ContentControl Content="{Binding CurrentSettingsViewModel}">
+
+                <ContentControl.Resources>
+
+                    <!--// Account Settings View //-->
+
+                    <DataTemplate DataType="{x:Type viewmodels:AccountSettingsViewModel}">
+
+                        <views:AccountSettingsView/>
+
+                    </DataTemplate>
+
+                    <!--// Interface Settings View //-->
+
+                    <DataTemplate DataType="{x:Type viewmodels:InterfaceSettingsViewModel}">
+
+                        <views:InterfaceSettingsView/>
+
+                    </DataTemplate>
+
+                </ContentControl.Resources>
+
+            </ContentControl>
+
+        </Grid>
+
+    </Grid>
+    
+</UserControl>

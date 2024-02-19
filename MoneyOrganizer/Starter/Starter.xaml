@@ -1,0 +1,24 @@
+﻿<Window x:Class="MoneyOrganizer.Starter.Starter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MoneyOrganizer.Starter"
+        mc:Ignorable="d"
+        Topmost="True"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Title="Starter" Height="256" Width="256">
+    <Window.Background>
+        <SolidColorBrush Opacity="0" Color="White"/>
+    </Window.Background>
+    <Grid>
+        <Grid Margin="5">
+            <Grid.Background>
+                <ImageBrush ImageSource="../Resources/logo.png"/>
+            </Grid.Background>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,265 @@
+﻿<UserControl x:Class="MoneyOrganizer.View.IncomesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MoneyOrganizer.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="935">
+
+    <UserControl.Resources>
+
+        
+
+    </UserControl.Resources>
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        
+        <!--// Header //--> 
+
+        <Grid Grid.Row="0" Margin="0 25 0 0">
+
+            <TextBlock Text="Przychody" 
+                       FontSize="25"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"
+                       Style="{StaticResource TestFont_style}"/>
+
+            <StackPanel Width="220"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+
+                <StackPanel HorizontalAlignment="Right"
+                                Margin="0 20 0 0">
+
+                    <Button Width="40"
+                                Command="{Binding AddIncomeCommand}"
+                                Style="{StaticResource Btn_menu}">
+
+                        <Image Source="../Resources/income.png"
+                                Stretch="Fill"
+                                Margin="5,0,0,5"
+                                Width="30"
+                                Height="30"/>
+
+                    </Button>
+
+                    <TextBlock Text="Dodaj przychód"
+                                   FontSize="16"
+                                   Style="{StaticResource TestFont_style}"/>
+
+                </StackPanel>
+                
+            </StackPanel>
+
+        </Grid>
+
+        <Grid Grid.Row="0">
+
+            <Border BorderBrush="#343746"
+                    BorderThickness="0 0 0 1"
+                    Margin="40 0"/>
+
+        </Grid>
+
+        <!--// Filters //-->
+
+        <Grid Grid.Row="1">
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        Height="82"
+                        Width="900"
+                        Margin="20 0 10 0">
+                
+                <!--// Last Week //--> 
+
+                <Button Width="120"
+                        Height="40"
+                        Content="Ostatni Tydzień"
+                        Margin="10"
+                        HorizontalAlignment="Right"
+                        Command="{Binding LastWeekFiltrCommand}"
+                        Style="{StaticResource saveBtn_style}">
+
+                </Button>
+
+                <!--// Last Month //--> 
+                
+                <Button Width="120"
+                        Height="40"
+                        Content="Ostatni Miesiąc"
+                        Margin="10"
+                        HorizontalAlignment="Right"
+                        Command="{Binding LastMonthFiltrCommand}"
+                        Style="{StaticResource saveBtn_style}">
+
+                </Button>
+                
+                <!--// Interval //--> 
+
+                <StackPanel Orientation="Horizontal">
+
+                    <StackPanel VerticalAlignment="Center">
+
+                        <DatePicker Margin="5 10 5 5"
+                                    Width="120"
+                                    Height="30"
+                                    SelectedDate="{Binding DateFrom}"
+                                    Style="{StaticResource DP_style}">
+
+                        </DatePicker>
+
+                    </StackPanel>
+
+                    <TextBlock Text="-" 
+                               FontSize="16"
+                               Margin="0"
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"
+                               Style="{StaticResource TestFont_style}"/>
+
+                    <StackPanel VerticalAlignment="Center">
+
+                        <DatePicker Margin="5 10 5 5"
+                                    Width="120"
+                                    Height="30"
+                                    SelectedDate="{Binding DateTo}"
+                                    Style="{StaticResource DP_style}">
+
+                        </DatePicker>
+
+                    </StackPanel>
+
+                    <StackPanel VerticalAlignment="Center">
+
+                        <TextBlock Text="Wybrany przedział" 
+                                    FontSize="16"
+                                    Margin="0"
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource TestFont_style}"/>
+
+                        <Button Width="100"
+                                Height="25"
+                                Content="Filtruj"
+                                Margin="2"
+                                HorizontalAlignment="Center"
+                                Command="{Binding TimeIntervalFiltrCommand}"
+                                Style="{StaticResource saveBtn_style}">
+
+                        </Button>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Border BorderBrush="#343746"
+                    BorderThickness="0 0 0 1"
+                    Margin="40 0"/>
+
+        </Grid>
+        
+        <!--// Messages and Raport //-->
+
+        <Grid Grid.Row="2">
+            
+            <!--// Message Box //-->
+
+            <Button Width="120"
+                    Height="40"
+                    Content="Generuj Raport"
+                    Margin="0"
+                    HorizontalAlignment="Center"
+                    Command="{Binding GenerateRaportCommand}"
+                    Style="{StaticResource saveBtn_style}">
+
+            </Button>
+
+        </Grid>
+
+        
+        <Grid Grid.Row="2">
+
+            <Border BorderBrush="#343746"
+                    BorderThickness="0 0 0 1"
+                    Margin="40 0"/>
+
+        </Grid>
+        
+        
+        <!--// Earning //-->
+
+        <Grid Grid.Row="3">
+
+            <StackPanel HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+
+                <!--// Income List View //-->
+
+                <ListView Margin="13 10 13 0"
+                          MaxHeight="450"
+                          x:Name="IncomeListView"
+                          ItemsSource="{Binding Transactions}"
+                          Style="{StaticResource LVTransactions_style}"
+                          ItemContainerStyle="{StaticResource LVI_style}"
+                          ScrollViewer.VerticalScrollBarVisibility="Visible">
+
+                    <ListView.Resources>
+
+                        <Style TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource FavsScrollViewer}"></Style>
+
+                    </ListView.Resources>
+
+                    <ListView.View>
+
+
+                        <GridView>
+                            <GridViewColumn Width="50">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button x:Name="CloseBtn" 
+                                                Command="{Binding ElementName=IncomeListView, Path=DataContext.DeleteIncomeCommand}"
+                                                CommandParameter="{Binding Id}"
+                                                Style="{StaticResource CloseBtn_style}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="150" Header="Data" DisplayMemberBinding="{Binding Date}" />
+                            <GridViewColumn Width="300" Header="Opis" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Width="150" Header="Koszt" DisplayMemberBinding="{Binding Amount}"/>
+
+                            <GridView.ColumnHeaderContainerStyle>
+
+                                <Style BasedOn="{StaticResource LVH_style}" TargetType="{x:Type GridViewColumnHeader}"></Style>
+
+                            </GridView.ColumnHeaderContainerStyle>
+
+                        </GridView>
+
+                    </ListView.View>
+
+                </ListView>
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

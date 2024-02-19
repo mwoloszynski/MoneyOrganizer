@@ -1,0 +1,158 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x86;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\closeBtn_default.png" />
+    <None Remove="Assets\closeBtn_MouseOver.png" />
+    <None Remove="Assets\img_contact.png" />
+    <None Remove="Assets\img_home.png" />
+    <None Remove="Assets\img_map.png" />
+    <None Remove="Assets\img_setting.png" />
+    <None Remove="Assets\income.png" />
+    <None Remove="Assets\Roboto-Light.ttf" />
+    <None Remove="Assets\tgBtn_default.png" />
+    <None Remove="Assets\tgBtn_MouseOver.png" />
+    <None Remove="Resources\Automotive.png" />
+    <None Remove="Resources\Beauty.png" />
+    <None Remove="Resources\Clothes.png" />
+    <None Remove="Resources\DIY.png" />
+    <None Remove="Resources\Electronics.png" />
+    <None Remove="Resources\Entertainment.png" />
+    <None Remove="Resources\Garden.png" />
+    <None Remove="Resources\Grocery.png" />
+    <None Remove="Resources\Health.png" />
+    <None Remove="Resources\Home.png" />
+    <None Remove="Resources\income.png" />
+    <None Remove="Resources\logo.png" />
+    <None Remove="Resources\Luxury.png" />
+    <None Remove="Resources\Others.png" />
+    <None Remove="Resources\outcome.png" />
+    <None Remove="Resources\Software.png" />
+    <None Remove="Resources\Sport.png" />
+    <None Remove="Resources\tgBtn.png" />
+    <None Remove="Resources\Toys.png" />
+    <None Remove="Resources\Transport.png" />
+    <None Remove="Resources\Travel.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Core" Version="8.1.97" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.115.5" />
+    <PackageReference Include="System.Windows.Controls.DataVisualization.Toolkit" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\closeBtn_default.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\closeBtn_MouseOver.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\img_contact.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\img_home.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\img_map.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\img_setting.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Roboto-Light.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\tgBtn_default.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\tgBtn_MouseOver.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Automotive.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Beauty.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Clothes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\DIY.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Electronics.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Entertainment.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Garden.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Grocery.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Health.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Home.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\income.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Luxury.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Others.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\outcome.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Software.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Sport.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\tgBtn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Toys.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Transport.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Travel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
