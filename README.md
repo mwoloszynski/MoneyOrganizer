@@ -1,7 +1,16 @@
-Application allows user to record income and expenses.
+#Application allows user to record income and expenses.
 
 - .NET WPF
 - MVVM
 - SQLite
 
+##Strona główna
 ![obraz](https://github.com/mwoloszynski/MoneyOrganizer/assets/139255497/59fc3b47-6f75-49cd-a226-7d439311aee9)
+
+
+##Lista
+![obraz](https://github.com/mwoloszynski/MoneyOrganizer/assets/139255497/57d7b177-a9dc-4922-b8a1-af679718d219)
+
+
+##Menu
+![obraz](https://github.com/mwoloszynski/MoneyOrganizer/assets/139255497/6033985d-91db-4d4d-a449-099cc1c13499)
